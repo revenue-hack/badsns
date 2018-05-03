@@ -17,10 +17,12 @@ bundle exec rails s
 ## 見つけた脆弱性
 幾つか脆弱性を見つけてコミットしてあります
 脆弱性のあるコードには修正を加えて、コメントを残してあります
-脆弱性タイプは
-@sql sql injection
-@directory ディレクトリトラバーサル
-@xss XSS
-@os osコマンドインジェクション
+脆弱性タイプは　　
+
+- @sql sql injection　　
+- @directory ディレクトリトラバーサル　　
+- @xss XSS　　
+- @os osコマンドインジェクション　　
+
 このようにコメントを残してあります
 
