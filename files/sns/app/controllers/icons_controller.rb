@@ -8,7 +8,7 @@ class IconsController < ApplicationController
       FileUtils.mv params[:image].tempfile, image_path
       FileUtils.chmod 0644, image_path
       if px = params[:resize_max_pixel]
-        # @directory
+        # @os
         # resize_max_pixel = `;sleep 10;`
         system 'convert', '-resize', '#{px}x#{px}', image_path, image_path
       end
