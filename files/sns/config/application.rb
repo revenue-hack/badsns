@@ -8,8 +8,12 @@ require 'digest/sha2'
 require 'securerandom'
 require 'rmagick'
 require 'jwt'
+require 'mysql2'
+require 'socket'
 
 Bundler.require(*Rails.groups)
+
+Addrinfo.ip("localhost")
 
 module BadSns
   class Application < Rails::Application

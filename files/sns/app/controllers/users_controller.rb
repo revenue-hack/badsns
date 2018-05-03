@@ -4,7 +4,11 @@ class UsersController < ApplicationController
     render json: {errors: stat.errors.full_messages}, status: :bad_request and return if stat.errors.any?
 
     user = User.find_by 'login_id = ?', params[:login_id]
+    # @directory
     icon_file_path = "#{Rails.root}/public/icons/#{user[:icon_file_name]}"
+    puts icon_file_path
+    puts File.file? icon_file_path
+    puts default_icon_path unless File.file? icon_file_path
     user.update icon_file_name: default_icon_path unless File.file? icon_file_path
 
     token = log_in user
@@ -14,6 +18,7 @@ class UsersController < ApplicationController
   def icon
     begin
       user = User.find params[:id]
+      # @directory
       send_data File.read "#{Rails.root}/public/icons/#{user[:icon_file_name]}", disposition: 'inline'
     rescue
       send_data File.read Dir["#{Rails.root}/public/icons/presets/*"][0], disposition: 'inline'

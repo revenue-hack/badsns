@@ -180,8 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
         cf.getElementById('content').textContent = feeds[i].comment;
       } else {
         // 画像フィードの場合
+        // @xss
         let caption = (feeds[i].exif.length > 1) ? `${feeds[i].exif}にて撮影` : '';
-        cf.getElementById('content').innerHTML = `
+        cf.getElementById('content').textContent = `
           <img class='img-responsive img-thumbnail' src='/images/${feeds[i].image_file_name}'>
           <br><small class='exif'>${caption}</small>`;
       }      

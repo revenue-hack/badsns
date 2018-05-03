@@ -1,1 +1,5 @@
 .DS_Store
+files/sns/public/icons
+files/sns/public/images
+files/sns/log/*.log
+files/sns/tmp

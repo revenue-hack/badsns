@@ -3031,3 +3031,35 @@ I, [2017-12-12T22:01:24.416015 #258]  INFO -- : [53f14240-24c0-481e-b956-f8fb788
 I, [2017-12-12T22:01:24.417504 #258]  INFO -- : [53f14240-24c0-481e-b956-f8fb788d90d0] Processing by SessionsController#clear as */*
 D, [2017-12-12T22:01:24.420485 #258] DEBUG -- : [53f14240-24c0-481e-b956-f8fb788d90d0]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
 I, [2017-12-12T22:01:24.421738 #258]  INFO -- : [53f14240-24c0-481e-b956-f8fb788d90d0] Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+D, [2018-05-01T14:43:32.709871 #68739] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2018-05-01T14:43:32.742599 #68739] DEBUG -- :   [1m[35m (24.2ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+D, [2018-05-01T14:43:32.757779 #68739] DEBUG -- :   [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2018-05-01T14:43:32.759493 #68739] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[34mSELECT GET_LOCK(5952683224169812620, 0)[0m
+D, [2018-05-01T14:43:32.778262 #68739] DEBUG -- :   [1m[35m (2.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+I, [2018-05-01T14:43:32.779249 #68739]  INFO -- : Migrating to CreateFeeds (20171103073854)
+D, [2018-05-01T14:43:32.795416 #68739] DEBUG -- :   [1m[35m (14.4ms)[0m  [1m[35mCREATE TABLE `feeds` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `feed_type` varchar(255), `user_id` int, `image_file_name` varchar(255), `exif` varchar(1000), `comment` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2018-05-01T14:43:32.798379 #68739] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+D, [2018-05-01T14:43:32.804574 #68739] DEBUG -- :   [1m[35mSQL (5.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171103073854')[0m
+D, [2018-05-01T14:43:32.806392 #68739] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+I, [2018-05-01T14:43:32.806652 #68739]  INFO -- : Migrating to CreateFriends (20171103073856)
+D, [2018-05-01T14:43:32.820225 #68739] DEBUG -- :   [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE `friends` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `from_user_id` int, `to_user_id` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2018-05-01T14:43:32.821099 #68739] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2018-05-01T14:43:32.822293 #68739] DEBUG -- :   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171103073856')[0m
+D, [2018-05-01T14:43:32.823398 #68739] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+I, [2018-05-01T14:43:32.823513 #68739]  INFO -- : Migrating to CreateUsers (20171103073857)
+D, [2018-05-01T14:43:32.835967 #68739] DEBUG -- :   [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `login_id` varchar(255), `name` varchar(255), `pass` varchar(255), `icon_file_name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+D, [2018-05-01T14:43:32.836483 #68739] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2018-05-01T14:43:32.837107 #68739] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20171103073857')[0m
+D, [2018-05-01T14:43:32.837627 #68739] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-05-01T14:43:32.839725 #68739] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+D, [2018-05-01T14:43:32.844206 #68739] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+D, [2018-05-01T14:43:32.845930 #68739] DEBUG -- :   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'production', '2018-05-01 05:43:32', '2018-05-01 05:43:32')[0m
+D, [2018-05-01T14:43:32.846751 #68739] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-05-01T14:43:32.847206 #68739] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK(5952683224169812620)[0m
+D, [2018-05-03T15:56:00.014377 #50135] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+D, [2018-05-03T15:56:00.016806 #50135] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK(5952683224169812620, 0)[0m
+D, [2018-05-03T15:56:00.025576 #50135] DEBUG -- :   [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+D, [2018-05-03T15:56:00.029403 #50135] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+D, [2018-05-03T15:56:00.033765 #50135] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+D, [2018-05-03T15:56:00.034585 #50135] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+D, [2018-05-03T15:56:00.034793 #50135] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK(5952683224169812620)[0m
